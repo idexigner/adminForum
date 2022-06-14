@@ -12,6 +12,7 @@ class User extends CI_Controller {
         }
         
         $this->load->model('Users_Model');
+        $this->load->model('Post_Comments_Pledges_Model');
         // $this->load->model('Proposals_Model');
         
         
@@ -35,7 +36,8 @@ class User extends CI_Controller {
 	}
 
     public function create()
-	{       
+	{ 
+
         $data['user'] = (object)[
             "user_id" => '',
             "user_fullname" => '',
@@ -46,6 +48,7 @@ class User extends CI_Controller {
             "is_active" => ''        
         ];
         $data['edit'] = false;
+        
         $this->load->view('user-create',$data);
 	}
 
@@ -88,7 +91,7 @@ class User extends CI_Controller {
     {
         $data['user'] = $this->Users_Model->getById($id);
         $data['edit'] = true;
-
+        $data['pledge_list'] = $this->Post_Comments_Pledges_Model->getByUser($id);
         // echo "<pre>";
         // print_r($data);
         $this->load->view('user-create',$data);

@@ -32,6 +32,12 @@ class Projects_Model extends CI_Model {
        return $result;
     }
 
+    public function filterByTitle($search){
+        $this->db->like('pro_title', $search);
+        $query = $this->db->get('projects');
+        return $query->result();
+    }
+
 }
 
 ?>

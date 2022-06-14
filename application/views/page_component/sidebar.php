@@ -47,6 +47,15 @@
                     
                     </ul>
                 </li>
+
+                <li>
+                    <a href="<?=base_url()?>filter" class="waves-effect">
+                        <i class="dripicons-search"></i>
+                        <span> Filter </span>
+                    </a>
+                </li>
+
+
                 <!-- <li>
                     <a href="calendar.html" class="waves-effect"><i class="dripicons-to-do"></i><span> Calendar </span></a>
                 </li> -->
