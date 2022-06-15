@@ -74,6 +74,9 @@
                                                     <li class="nav-item waves-effect waves-light">
                                                         <a class="nav-link" data-toggle="tab" href="#pledge-1" role="tab">Pledge</a>
                                                     </li>
+                                                    <li class="nav-item waves-effect waves-light">
+                                                        <a class="nav-link" data-toggle="tab" href="#transaction-1" role="tab">Transactions</a>
+                                                    </li>
                                                 
                                                 </ul>
                                            <?php } ?>
@@ -167,8 +170,6 @@
                                                                 <th>Pledge</th>                                                              
                                                             </tr>
                                                         </thead>
-        
-        
                                                         <tbody>
 
                                                             <?php
@@ -190,6 +191,50 @@
 
                                                                         <span class="badge badge-<?=$cl?>"><?=$txt?></span>
                                                                     
+                                                                    </td>
+                                                                </tr>
+                                                            <?php } ?>
+                                                                                                             
+                                                           
+                                                        </tbody>
+                                                    </table>
+                                                    </p>
+                                                </div>
+
+                                                <div class="tab-pane p-3" id="transaction-1" role="tabpanel">
+                                                    <p class="font-14 mb-0">
+                                                    <table id="datatable_transaction" class="table dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                        <thead>
+                                                            <tr>
+                                                            
+                                                                <th>Id</th>
+                                                                <!-- <th>User</th> -->
+                                                                <th>Amount</th>
+                                                                <th>Payment Date</th>
+                                                                <th>Payer Email</th>
+                                                                <th>Transaction Id</th>
+                                                                <th>Role</th>                                                            
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                            <?php
+                                                                foreach($transaction_list as $t){
+                                                            ?>
+                                                                <tr>
+                                                                    <td><?=$t->t_id?></td>
+                                                                    <!-- <td><?=$t->t_user_id?></td> -->
+                                                                    <td><?=$t->t_currency_code?> <?=$t->t_payment_gross?></td>
+                                                                    <td><?=date('F j, Y', strtotime($t->t_created))?></td>
+                                                                    <td><?=$t->t_payer_email?></td>
+                                                                    <td><?=$t->t_txn_id?></td>                                                 
+                                                                    <td>
+                                                                        <?php $r = $t->t_role;
+                                                                        if($r==1){$txt="Forum"; $cl="primary";}
+                                                                        else if($r==2){$txt="Contractor"; $cl="info";}
+                                                                        else if($r==3){$txt="Business"; $cl="warning";}
+                                                                        ?>
+                                                                        <span class="badge badge-<?=$cl?>"><?=$txt?></span>
                                                                     </td>
                                                                 </tr>
                                                             <?php } ?>
@@ -264,6 +309,8 @@
         <script>
             $(document).ready(function() {
                 $('#datatable2').DataTable();  
+                $('#datatable_transaction').DataTable();  
+                
             } );
         </script>
 

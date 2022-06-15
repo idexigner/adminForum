@@ -55,6 +55,20 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="<?=base_url()?>subscription" class="waves-effect">
+                        <i class="fas fa-hand-point-up"></i>
+                        <span> Subscription </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?=base_url()?>transactions" class="waves-effect">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span> Transactions </span>
+                    </a>
+                </li>
+
 
                 <!-- <li>
                     <a href="calendar.html" class="waves-effect"><i class="dripicons-to-do"></i><span> Calendar </span></a>

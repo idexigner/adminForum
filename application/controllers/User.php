@@ -14,6 +14,7 @@ class User extends CI_Controller {
         $this->load->model('Users_Model');
         $this->load->model('Post_Comments_Pledges_Model');
         // $this->load->model('Proposals_Model');
+        $this->load->model('Transactions_Model');
         
         
 
@@ -92,6 +93,8 @@ class User extends CI_Controller {
         $data['user'] = $this->Users_Model->getById($id);
         $data['edit'] = true;
         $data['pledge_list'] = $this->Post_Comments_Pledges_Model->getByUser($id);
+        $data['transaction_list'] = $this->Transactions_Model->getById($id);
+        
         // echo "<pre>";
         // print_r($data);
         $this->load->view('user-create',$data);

@@ -95,3 +95,9 @@ $route['contractorpages'] = 'contractorpages/Index'; //here appraiserpages is fo
 
 
 $route['filter'] = 'Filter';
+
+
+
+$route['transactions'] = 'Transactions';
+$route['subscription'] = 'Subscription';
+
